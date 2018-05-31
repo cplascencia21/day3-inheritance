@@ -17,15 +17,13 @@ class Point {
 
 }
 
-class Point3D {
+class Point3D extends Point {
 
-  x: number;
-  y: number;
   z: number;
 
   constructor (x: number, y: number, z: number) {
-    this.x = x;
-    this.y = y;
+    super(x, y);
+
     this.z = z;
     console.log(this.x, this.y, this.z);
   }
