@@ -12,7 +12,10 @@ class Point {
   }
 
   add(newPoint: Point) {
-    return newPoint = new Point(newPoint.x + this.x, newPoint.y + this.y);
+    return new Point (
+      this.x + newPoint.x,
+      this.y + newPoint.y
+    );
   }
 
 }
@@ -21,15 +24,24 @@ class Point3D extends Point {
 
   z: number;
 
-  constructor (x: number, y: number, z: number) {
-    super(x, y);
-
-    this.z = z;
-    console.log(this.x, this.y, this.z);
+  constructor (xVal: number, yVal: number, zVal: number) {
+    super(xVal, yVal);
+    this.z = zVal;
   }
 
   add(new3DPoint: Point3D) {
-    return new3DPoint = new Point3D(new3DPoint.x + this.x, new3DPoint.y + this.y, new3DPoint.z + this.z );
+    return new Point3D(
+      new3DPoint.x + this.x,
+      new3DPoint.y + this.y,
+      new3DPoint.z + this.z
+    );
+    // different way//
+    // let point2D = super.add(new3DPoint);
+    // return new Point3D(
+    //   point2D.x,
+    //   point2D.y,
+    //   new3DPoint.z + this.z
+    // );
   }
 }
 
@@ -40,7 +52,7 @@ class Point3D extends Point {
 })
 
 export class AppComponent implements OnInit {
-  title = 'app';
+  title = 'app works';
 
   ngOnInit() {
     this.twoclassTesting();
@@ -55,8 +67,8 @@ export class AppComponent implements OnInit {
   }
 
   classTesting() {
-    const p1 = new Point(2, 3);
-    const p2 = new Point(4, 5);
+    const p1 = new Point(5, 10);
+    const p2 = new Point(10, 15);
     const p3 = p1.add(p2);
     console.log(p3);
   }
